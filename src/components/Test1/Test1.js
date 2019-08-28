@@ -22,8 +22,7 @@ export default class Test1 extends Component {
   componentDidMount() {
     const newData = {
       columns: [...jsonData.columns],
-      originalRows: [...jsonData.rows],
-      rows: []
+      rows: [...jsonData.rows],
     };
     this.setState({
       data: newData
@@ -33,7 +32,9 @@ export default class Test1 extends Component {
   rows() {
     return this.state.data || [];
   }
-
+// let getdata=(e)=>{
+//   return <div>{e.question}</div>
+// }
   render() {
     const columns =
       this.state.data.columns &&
@@ -44,7 +45,21 @@ export default class Test1 extends Component {
           </th>
         );
       });
-
+      let add = {"order": 9,"type": "product"}
+      this.state.data.rows.push(add)
+      let rows=
+       this.state.data.rows && 
+       this.state.data.rows.map( e=>{
+         return <tr  key={e.order}>
+              <td>{e.order}</td>
+              <td>{e.type}</td>
+              <td>{e.question}</td>
+         </tr>
+       })
+      
+      //  let a = {ngaysinh: "0109"}
+      //  a.tuoi=20
+      //  a.isMarried = true
     return (
       <div
         className="table-wrap coltype"
@@ -81,11 +96,7 @@ export default class Test1 extends Component {
             <tr>{columns}</tr>
           </thead>
           <tbody>
-            <tr className="head">
-              <td>NUMBER</td>
-              <td>STRING</td>
-              <td>TEXT</td>
-            </tr>
+            {rows}
           </tbody>
         </table>
       </div>

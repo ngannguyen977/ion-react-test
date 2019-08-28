@@ -47,7 +47,7 @@
   ],
   "columns": [
     {
-      "label": "NO",
+      "label": "NO1",
       "field": "order"
     },
     {
