@@ -1,0 +1,33 @@
+[
+  {
+    "id":1,
+    "title":"1st User",
+    "color":"#0000FF",
+    "size": "60%"
+  },
+  {
+    "id":2,
+    "title":"2st User",
+    "color":"#DC143C",
+    "size": "20%"
+  },
+  {
+    "id":3,
+    "title":"3st User",
+    "color":"#FF8C00",
+    "size": "50%"
+  },
+  {
+    "id":4,
+    "title":"4st User",
+    "color":"#00FFFF",
+    "size": "90%"
+  },
+  {
+    "id":5,
+    "title":"5st User",
+    "color":"#FF69B4",
+    "size": "30%"
+  }
+
+]

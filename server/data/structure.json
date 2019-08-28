@@ -1,0 +1,92 @@
+[
+  {
+    "value": "orderPaymentId",
+    "label": "결제정보 아이디",
+    "valueType": {
+      "value": "LONG",
+      "label": "Long"
+    },
+    "disabled": true,
+    "required": true
+  },
+  {
+    "value": "replyMsg",
+    "label": "결과메세지",
+    "valueType": {
+      "value": "STRING",
+      "label": "String"
+    },
+    "disabled": false,
+    "required": true
+  },
+  {
+    "value": "payType",
+    "label": "지불수단",
+    "valueType": {
+      "value": "STRING",
+      "label": "String"
+    },
+    "disabled": false,
+    "required": true
+  },
+  {
+    "value": "approvalYmdhms",
+    "label": "승인일시",
+    "valueType": {
+      "value": "STRING",
+      "label": "String"
+    },
+    "disabled": false,
+    "required": true
+  },
+  {
+    "value": "seqNo",
+    "label": "거래일련번호",
+    "valueType": {
+      "value": "STRING",
+      "label": "String"
+    },
+    "disabled": false,
+    "required": false
+  },
+  {
+    "value": "owner",
+    "label": "등록자",
+    "valueType": {
+      "value": "REFERENCE",
+      "label": "Reference"
+    },
+    "disabled": false,
+    "required": false
+  },
+  {
+    "value": "created",
+    "label": "등록일시",
+    "valueType": {
+      "value": "DATE",
+      "label": "Date"
+    },
+    "disabled": true,
+    "required": false
+  },
+  {
+    "value": "modifier",
+    "label": "수정자",
+    "valueType": {
+      "value": "REFERENCE",
+      "label": "Reference"
+    },
+    "disabled": false,
+    "required": false
+  },
+  {
+    "value": "changed",
+    "label": "수정일시",
+    "valueType": {
+      "value": "DATE",
+      "label": "Date"
+    },
+    "disabled": false,
+    "required": false
+  }
+]

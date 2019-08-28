@@ -1,0 +1,52 @@
+[
+  {
+    "id":1,
+    "name":"I-ON A TEAM",
+    "data": {
+      "Teamwork": 8,
+      "Benefit": 2,
+      "Career": 5,
+      "Total": 0
+    }
+  },
+  {
+    "id":2,
+    "name":"I-ON B TEAM",
+    "data": {
+      "Teamwork": 3,
+      "Benefit": 6,
+      "Career": 8,
+      "Total": 0
+    }
+  },
+  {
+    "id":2,
+    "name":"I-ON B TEAM",
+    "data": {
+      "Teamwork": 5,
+      "Benefit": 1,
+      "Career": 2,
+      "Total": 0
+    }
+  },
+  {
+    "id":2,
+    "name":"I-ON B TEAM",
+    "data": {
+      "Teamwork": 10,
+      "Benefit": 8,
+      "Career": 9,
+      "Total": 0
+    }
+  },
+  {
+    "id":2,
+    "name":"I-ON B TEAM",
+    "data": {
+      "Teamwork": 3,
+      "Benefit": 5,
+      "Career": 8,
+      "Total": 0
+    }
+  }
+]

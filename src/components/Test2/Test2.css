@@ -1,0 +1,67 @@
+.mb-1, .my-1 {
+    margin-bottom: 4px!important;
+    margin-bottom: .25rem!important;
+  }
+  .row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+  .col-sm-2 {
+     -ms-flex: 0 0 16.666667%;
+     flex: 0 0 16.666667%;
+     max-width: 16.666667%;
+   }
+  .col-sm-2, .col-sm-10 {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .pt-1, .py-1 {
+    padding-top: 4px!important;
+    padding-top: .25rem!important;
+  }
+  .col-sm-10 {
+    -ms-flex: 0 0 83.333333%;
+    flex: 0 0 83.333333%;
+    max-width: 83.333333%;
+  }
+  .progress, .progress-bar {
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .progress {
+    height: 16px;
+    height: 1rem;
+    overflow: hidden;
+    font-size: 12px;
+    font-size: .75rem;
+    background-color: #e9ecef;
+    border-radius: .25rem;
+  }
+  .progress-bar {
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-pack: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #007bff;
+    transition: width .6s ease;
+  }
+  .progress, .progress-bar {
+    display: -ms-flexbox;
+    display: flex;
+  }
+  * {
+    -webkit-font-smoothing: antialiased;
+  }
+  *, :after, :before {
+    box-sizing: border-box;
+  }

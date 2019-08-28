@@ -1,0 +1,63 @@
+{
+  "rows": [
+    {
+        "order": 1,
+        "type": "product",
+        "question": "How do I write a product review?"
+      },
+    {
+        "order": 2,
+        "type": "mobile",
+        "question": "How do I use the mobile remote control service?"
+       },
+    {
+        "order": 3,
+        "type": "product",
+        "question": "How do I write a product review?"
+         },
+    {
+        "order": 4,
+        "type": "mobile",
+        "question": "How do I use the mobile remote control service?"
+
+      },
+    {
+        "order": 5,
+        "type": "product",
+        "question": "How do I write a product review?"
+
+        },
+    {
+        "order": 6,
+        "type": "mobile",
+        "question": "How do I use the mobile remote control service?"
+
+       },
+    {
+      "order": 7,
+      "type": "product",
+      "question": "How do I write a product review?"
+    },
+    {
+        "order": 8,
+        "type": "mobile",
+        "question": "How do I use the mobile remote control service?"
+
+     }
+  ],
+  "columns": [
+    {
+      "label": "NO",
+      "field": "order"
+    },
+    {
+      "label": "TYPE",
+      "field": "type"
+    },
+    {
+      "label": "Q&A",
+      "field": "question"
+    }
+  ]
+}
+

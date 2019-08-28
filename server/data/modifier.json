@@ -1,0 +1,74 @@
+{
+  "items": [
+    {
+      "refId": "10000",
+      "value": "10000",
+      "label": "testCustomer"
+    },
+    {
+      "refId": "10001",
+      "value": "10001",
+      "label": "testCustomer"
+    },
+    {
+      "refId": "1003",
+      "value": "1003",
+      "label": "손유정"
+    },
+    {
+      "refId": "1002",
+      "value": "1002",
+      "label": "허주연"
+    },
+    {
+      "refId": "1001",
+      "value": "1001",
+      "label": "김카트"
+    },
+    {
+      "refId": "4",
+      "value": "4",
+      "label": "한승훈"
+    },
+    {
+      "refId": "3",
+      "value": "3",
+      "label": "류대현"
+    },
+    {
+      "refId": "2",
+      "value": "2",
+      "label": "박진호"
+    },
+    {
+      "refId": "1",
+      "value": "1",
+      "label": "윤선웅"
+    },
+    {
+      "refId": "0",
+      "value": "0",
+      "label": "김영희"
+    },
+    {
+      "refId": "admin1",
+      "value": "admin1",
+      "label": "관리자테스트"
+    },
+    {
+      "refId": "defaultAdmin",
+      "value": "defaultAdmin",
+      "label": "Default Admin User"
+    },
+    {
+      "refId": "anonymous",
+      "value": "anonymous",
+      "label": "Anonymous User"
+    },
+    {
+      "refId": "system",
+      "value": "system",
+      "label": "System User"
+    }
+  ]
+}
