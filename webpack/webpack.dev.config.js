@@ -5,21 +5,20 @@ var parentDir = path.join(__dirname, '../');
 
 module.exports = {
     entry: [
-        path.join(parentDir, 'index.js')
+        path.join(parentDir, 'index.jsx')
     ],
     module: {
         rules: [{
             test: /\.(js|jsx)$/,
-                exclude: /node_modules/,
-                loader: 'babel-loader'
-            },{
-                test: /\.less$/,
-                loaders: ["style-loader", "css-loader", "less-loader"]
-            },{
-                test: /\.css$/,
-                loaders: ["style-loader", "css-loader", ]
-            }
-        ]
+            exclude: /node_modules/,
+            loader: 'babel-loader'
+        }, {
+            test: /\.less$/,
+            loaders: ["style-loader", "css-loader", "less-loader"]
+        }, {
+            test: /\.css$/,
+            loaders: ["style-loader", "css-loader", ]
+        }]
     },
     output: {
         path: parentDir + '/dist',

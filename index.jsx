@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Route, Link, BrowserRouter as Router } from "react-router-dom";
 
-import Test1 from './src/components/Test1/Test1';
+import Test1 from './src/components/Test1/Test1.jsx';
 import Test2 from './src/components/Test2/Test2';
 import Test3 from './src/components/Test3/Test3';
 import Test4 from './src/components/Test4/Test4';
@@ -14,7 +14,7 @@ class App extends React.Component {
         <div>
           <Link to="/">Home</Link>
           <div className="text-center">
-            <h1>I-ON Communications Code Test</h1>
+            <h1>I-ON Communications Code Test</h1> 
             <p>
               This challenge contains 3 tests. Complete the tests and share us
               your GIT repository.
