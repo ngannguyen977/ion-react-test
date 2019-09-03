@@ -7,6 +7,8 @@ export default class Test1 extends Component {
     constructor(props) {
         super(props);
         this.state = {
+
+            //1
             data: {
                 columns: [],
                 originalRows: [],
@@ -14,6 +16,7 @@ export default class Test1 extends Component {
             },
             query: "",
             type: "",
+            qa:"",
             question: "",
             error: false,
             successfull: false,
@@ -22,22 +25,32 @@ export default class Test1 extends Component {
         };
         //search
     }
-    addItem(e){
-        e.preventDefault();
-        let newList=[];
-        let list = this.state.list;
-        const newItem = document.getElementById("addInput");
-        const form = document.getElementById("addItemForm");
-
-        if(newItem.value !=""){
-            list.push(newItem.value);
-            list.rows = newList;
-            this.setState({
-                list:list
-            });
-        }
+    getType(val){
+       this.setState({
+           type: val
+       }) 
     }
-    componentDidMount() {
+    getQA(val){
+        this.setState({
+            qa:val
+        })
+    }
+    addItem(){
+        let newRow={
+            order:this.state.data.rows.length + 1,
+            type:this.state.type,
+            question: this.state.qa
+        }
+        let newData = this.state.data;
+        newData.rows.push(newRow)
+        newData.originalRows.push(newRow)
+        this.setState({
+            //cap nhat cho data 1
+            data: newData
+        })
+
+    }
+    componentWillMount() {
         const newData = {
             columns: [...jsonData.columns],
             rows: [...jsonData.rows],
@@ -47,9 +60,7 @@ export default class Test1 extends Component {
             data: newData,
         });
     }
-    rows() {
-        return this.state.data || [];
-    }
+    
     //step 2: ham Search de handle input tu o Searchbox
     search(text) {
         let newData = this.state.data
@@ -101,12 +112,22 @@ export default class Test1 extends Component {
                 { width: "50%", margin: "0 auto" }} >
             <h4 > Render a datatable using test1.json </h4>
             <p > Note: the amount of Column can be changed dynamically. </p >
-            <form className="form-group">
+            <div className="form-group">
                 <label> Type </label>
-                <input type="text" className="" />
+                <input 
+                onChange ={e=>this.getType(e.target.value)}
+                value={this.state.type}
+                type="text" 
+                className="" 
+                />
                 <label> Q & A </label>
-                <input type="name" className=""  id="addInput" />
-                <button type="submit" className="btn btn-primary" onClick ={this.addItem}>Add </button> </form> <br />
+                <input
+                onChange={e=>this.getQA(e.target.value)}
+                value={this.state.qa}
+                 type="name" 
+                 className=""  
+                 />
+                <button className="btn btn-primary" onClick ={e=>this.addItem()}>Add </button> </div> <br />
             <div className="form-group" >
                 <input type="text"
                     // step 3: gan cai ham search vs variable search: this.state.search cua e vao day
@@ -115,19 +136,11 @@ export default class Test1 extends Component {
                     className="input"
                     placeholder="Search..."
                     defaultValue=""// them cho khoi warning
-                    style={
-                        { width: '500' }
-                    }
+                 
                 />
                 <button type="submit" className="btn btn-primary" >Search </button>
-            </div > { /* <input type="text" className="form-control m-0" /> */}
+            </div > 
             <table className="table ui-accordion" >
-                <caption />
-                <colgroup>
-                    <col style={{ width: 10 }} />
-                    <col style={{ width: 50 }} />
-                    <col style={{ width: 30 }} />
-                </colgroup >
                 <thead>
                     <tr> {columns} </tr>
                 </thead >
