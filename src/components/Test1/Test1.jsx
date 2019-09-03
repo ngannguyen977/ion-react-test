@@ -5,13 +5,14 @@ import "./Test1.css";
 export default class Test1 extends Component {
     constructor(props) {
         super(props);
+        console.log('react-lifecycle : initialization')
         this.state = {
             data: {
                 columns: [],
                 originalRows: [],
                 rows: [],
                 //search
-               // filtered: [],
+                // filtered: [],
             },
             search: "",
             type: "",
@@ -21,14 +22,32 @@ export default class Test1 extends Component {
         };
         //search
         this.updateSearch = this.updateSearch.bind(this)
-        
+
     }
 
-    updateSearch(event){
-        this.setState({search: event.target.value.substr(0,20)});
-    }
+    updateSearch(event) {
 
+        let search = event.target.value
+
+        let filteredItem2 = this.state.data.rows.filter(item => (
+            item.order.toString().includes(search)
+            || item.type.includes(search)
+            || item.question.includes(search)))
+
+        //cap nhat lai state de update GUI
+        let data = this.state.data
+        data.rows = filteredItem2
+
+        console.log("search", search)
+        console.log("filter", filteredItem2)
+        this.setState({ search: search, data: data })
+    }
+    componentWillMount() {
+        console.log('react-lifecycle : mounting: willmount')
+
+    }
     componentDidMount() {
+        console.log('react-lifecycle : mounting: didmount')
         const newData = {
             columns: [...jsonData.columns],
             rows: [...jsonData.rows],
@@ -36,7 +55,7 @@ export default class Test1 extends Component {
         this.setState({
             data: newData,
             //search
-            //filtered: this.props.items
+            //filteredItem2: this.data.rows
         });
     }
 
@@ -74,16 +93,24 @@ export default class Test1 extends Component {
     //   return <div>{e.question}</div>
     // }
     render() {
-        let filteredItem = this.state.data.rows.filter((item)=>{
-            return item.name.toLowerCase().indexOf(this.state.search) !==-1;
-        })
+        console.log('react-lifecycle : mounting: render')
+        // let filteredItem = this.state.data.rows.filter((item) => {
+        //     console.log("item",item)
+        //     let isContain = item.order.toString().includes(this.state.search) || item.type.includes(this.state.search) || item.question.includes(this.state.search);
+        //     if(isContain){
+        //         return true;
+        //     }else{
+        //         return false;
+        //     }
+        // })
+
         const columns =
             this.state.data.columns &&
             this.state.data.columns.map((col, index) => {
                 return (<th scope="col" key={col.field}> {col.label} </th>
                 );
             });
-        let add = { "order": 9, "type": "product" }
+        let add = { "order": 9, "type": "product", question: "" }
         this.state.data.rows.push(add)
         let rows =
             this.state.data.rows &&
@@ -108,31 +135,31 @@ export default class Test1 extends Component {
                 <input type="text" className="" />
                 <label> Q & A </label>
                 <input type="name" className="" />
-                <button type="submit"className="btn btn-primary" >Add </button> </div> <br />
+                <button type="submit" className="btn btn-primary" >Add </button> </div> <br />
             <div className="form-group" >
                 <input type="text"
                     value={this.state.search}
-                    onChange={() => this.state.updateSearch()}
+                    onChange={(e) => this.updateSearch(e)}
                     className="input"
                     placeholder="Search..."
                     style={
                         { width: '500' }
                     }
-                /> 
-                <button type="submit"className="btn btn-primary" >Search </button>
+                />
+                <button type="submit" className="btn btn-primary" >Search </button>
             </div > { /* <input type="text" className="form-control m-0" /> */}
             <table className="table ui-accordion" >
-                <caption/>
+                <caption />
                 <colgroup>
-                    <col style={{ width: 10 }}/>
-                    <col style={{ width: 50 } }/> 
-                    <col style={{ width: 30 }}/> 
-                </colgroup >
+                    <col style={{ width: 10 }} />
+                    <col style={{ width: 50 }} />
+                    <col style={{ width: 30 }} />
+                </colgroup>
                 <thead>
                     <tr> {columns} </tr>
-                </thead >
+                </thead>
                 <tbody> {rows} </tbody>
-            </table >
+            </table>
         </div>
         );
     }
