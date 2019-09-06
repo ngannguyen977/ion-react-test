@@ -50,6 +50,21 @@ export default class Test1 extends Component {
         })
 
     }
+    deleteItem(item){
+      const list = this.state.data.rows.slice();
+       // Check to see if item passed in matches item in array
+        list.some((el, i) => {
+            if (el === item) {
+            // If item matches, remove it from array
+            list.splice(i, 1);
+            return true;
+        }
+        });
+        // Set state to list
+        this.setState({
+            list: list
+        });
+    }
     componentWillMount() {
         const newData = {
             columns: [...jsonData.columns],
@@ -90,8 +105,7 @@ export default class Test1 extends Component {
         const columns =
             this.state.data.columns &&
             this.state.data.columns.map((col, index) => {
-                return (<th scope="col" key={col.field}> {col.label} </th>
-                );
+                return (<th scope="col" key={col.field}> {col.label} </th>);
             });
             // tam thoi bo di cho e do roi
         // let add = { "order": 9, "type": "product", "question": "How do I use the mobile remote control service?" }
@@ -103,6 +117,7 @@ export default class Test1 extends Component {
                     <td> {item.order} </td>
                     <td> {item.type} </td>
                     <td> {item.question} </td>
+                    <td><button onClick={() => this.props.delete(item)}>Delete</button></td>
                 </tr>
             })
 
@@ -142,7 +157,7 @@ export default class Test1 extends Component {
             </div > 
             <table className="table ui-accordion" >
                 <thead>
-                    <tr> {columns} </tr>
+                    <tr>{columns}<td>Action</td></tr>
                 </thead >
                 <tbody> {rows} </tbody>
             </table >
