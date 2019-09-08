@@ -28,7 +28,7 @@ export default class Test1 extends Component {
     getType(val){
        this.setState({
            type: val
-       }) 
+       })
     }
     getQA(val){
         this.setState({
@@ -36,8 +36,9 @@ export default class Test1 extends Component {
         })
     }
     addItem(){
+        let max = Math.max(...this.state.data.rows.map(x=>x.order))
         let newRow={
-            order:this.state.data.rows.length + 1,
+            order:max + 1,
             type:this.state.type,
             question: this.state.qa
         }
@@ -50,21 +51,28 @@ export default class Test1 extends Component {
         })
 
     }
-    deleteItem(item){
-      const list = this.state.data.rows.slice();
-       // Check to see if item passed in matches item in array
-        list.some((el, i) => {
-            if (el === item) {
-            // If item matches, remove it from array
-            list.splice(i, 1);
-            return true;
-        }
-        });
+    updateItem(item){
+        console.log("updat:", item)
+    }
+    deleteItem(order){
+        console.log("delete", item)
+      let newData = this.state.data
+      newData.rows = newData.rows.filter(x=>x.order != order)
+    //   const list = this.state.data.rows.slice();
+    //    // Check to see if item passed in matches item in array
+    //     list.some((el, i) => {
+    //         if (el === item) {
+    //         // If item matches, remove it from array
+    //         list.splice(i, 1);
+    //         return true;
+    //     }
+    //     });
         // Set state to list
         this.setState({
-            list: list
+            data: newData
         });
     }
+
     componentWillMount() {
         const newData = {
             columns: [...jsonData.columns],
@@ -75,7 +83,7 @@ export default class Test1 extends Component {
             data: newData,
         });
     }
-    
+
     //step 2: ham Search de handle input tu o Searchbox
     search(text) {
         let newData = this.state.data
@@ -83,6 +91,7 @@ export default class Test1 extends Component {
          // neu e nhap gi do vao o search
         if (text) {
             // list sau khi search
+            // includes : bao gom
             listAfterSearch = this.state.data.rows.filter(item => (
                 item.order.toString().includes(text)
                 || item.type.includes(text)
@@ -90,9 +99,9 @@ export default class Test1 extends Component {
             ))
         } else {
             // neu o search rong, tra lai list ban dau
-            listAfterSearch = this.state.data.originalRows  
+            listAfterSearch = this.state.data.originalRows
         }
-        // cap nhat lai state 
+        // cap nhat lai state
         newData.rows = listAfterSearch
         this.setState({
             search: text,
@@ -114,14 +123,15 @@ export default class Test1 extends Component {
             this.state.data.rows &&
             this.state.data.rows.map(item => {
                 return <tr key={item.order}>
-                    <td> {item.order} </td>
-                    <td> {item.type} </td>
-                    <td> {item.question} </td>
-                    <td><button onClick={() => this.props.delete(item)}>Delete</button></td>
+                    <td>{item.order}</td>
+                    <td> <input defaultValue={item.type}/></td>
+                    <td> <input value={item.question}/> </td>
+                    <td><button onClick={() => this.updateItem(item)}>Update</button></td>
+                    <td><button onClick={() => this.deleteItem(item.order)}>Delete</button></td>
                 </tr>
             })
 
-        
+
         return (<div className="table-wrap coltype"
             style={
                 { width: "50%", margin: "0 auto" }} >
@@ -129,18 +139,18 @@ export default class Test1 extends Component {
             <p > Note: the amount of Column can be changed dynamically. </p >
             <div className="form-group">
                 <label> Type </label>
-                <input 
+                <input
                 onChange ={e=>this.getType(e.target.value)}
                 value={this.state.type}
-                type="text" 
-                className="" 
+                type="text"
+                className=""
                 />
                 <label> Q & A </label>
                 <input
                 onChange={e=>this.getQA(e.target.value)}
                 value={this.state.qa}
-                 type="name" 
-                 className=""  
+                 type="name"
+                 className=""
                  />
                 <button className="btn btn-primary" onClick ={e=>this.addItem()}>Add </button> </div> <br />
             <div className="form-group" >
@@ -151,10 +161,10 @@ export default class Test1 extends Component {
                     className="input"
                     placeholder="Search..."
                     defaultValue=""// them cho khoi warning
-                 
+
                 />
                 <button type="submit" className="btn btn-primary" >Search </button>
-            </div > 
+            </div >
             <table className="table ui-accordion" >
                 <thead>
                     <tr>{columns}<td>Action</td></tr>
