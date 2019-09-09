@@ -26,9 +26,12 @@ export default class Test1 extends Component {
         //search
     }
     getType(val){
+        // val : láy giá trị tại ô input
        this.setState({
+           //cap nhat lai type cho type tren constructor
            type: val
        })
+       console.log("sukien", val)
     }
     getQA(val){
         this.setState({
@@ -51,8 +54,13 @@ export default class Test1 extends Component {
         })
 
     }
-    updateItem(item){
-        console.log("updat:", item)
+    updateItem(order){
+        console.log("updat:", newData)
+        let newData = this.state.data.rows;
+        let letFindIndex = this.findIndex(index)
+        let itemEditing = newData[letFindIndex]
+       
+        console.log("find index", itemEditing)
     }
     deleteItem(order){
         console.log("delete", item)
@@ -116,17 +124,15 @@ export default class Test1 extends Component {
             this.state.data.columns.map((col, index) => {
                 return (<th scope="col" key={col.field}> {col.label} </th>);
             });
-            // tam thoi bo di cho e do roi
-        // let add = { "order": 9, "type": "product", "question": "How do I use the mobile remote control service?" }
-        // this.state.data.rows.push(add)
+            
         let rows =
             this.state.data.rows &&
             this.state.data.rows.map(item => {
                 return <tr key={item.order}>
-                    <td>{item.order}</td>
+                    <td>{(item.order -1) + 1}</td>
                     <td> <input defaultValue={item.type}/></td>
                     <td> <input value={item.question}/> </td>
-                    <td><button onClick={() => this.updateItem(item)}>Update</button></td>
+                    <td><button onClick={() => this.updateItem(item.order)}>Update</button></td>
                     <td><button onClick={() => this.deleteItem(item.order)}>Delete</button></td>
                 </tr>
             })
