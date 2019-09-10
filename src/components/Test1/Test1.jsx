@@ -54,16 +54,13 @@ export default class Test1 extends Component {
         })
 
     }
-    updateItem(order){
-        console.log("updat:", newData)
-        let newData = this.state.data.rows;
-        let letFindIndex = this.findIndex(index)
-        let itemEditing = newData[letFindIndex]
+    updateItem = () => {
        
-        console.log("find index", itemEditing)
     }
+       
+    
     deleteItem(order){
-        console.log("delete", item)
+       
       let newData = this.state.data
       newData.rows = newData.rows.filter(x=>x.order != order)
     //   const list = this.state.data.rows.slice();
@@ -131,8 +128,8 @@ export default class Test1 extends Component {
                 return <tr key={item.order}>
                     <td>{(item.order -1) + 1}</td>
                     <td> <input defaultValue={item.type}/></td>
-                    <td> <input value={item.question}/> </td>
-                    <td><button onClick={() => this.updateItem(item.order)}>Update</button></td>
+                    <td> <input defaultValue={item.question}/> </td>
+                    <td><button onClick={() => this.updateItem(item)}>Update</button></td>
                     <td><button onClick={() => this.deleteItem(item.order)}>Delete</button></td>
                 </tr>
             })

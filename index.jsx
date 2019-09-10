@@ -6,6 +6,7 @@ import Test1 from './src/components/Test1/Test1.jsx';
 import Test2 from './src/components/Test2/Test2';
 import Test3 from './src/components/Test3/Test3';
 import Test4 from './src/components/Test4/Test4';
+import Home from './src/home.jsx';
 
 class App extends React.Component {
   render() {
@@ -33,6 +34,9 @@ class App extends React.Component {
               <li>
               <Link to="/test4">Test - 4</Link>
               </li>
+              <li>
+              <Link to="/home">Home</Link>
+              </li>
             </ul>
           </div>
           
@@ -40,6 +44,7 @@ class App extends React.Component {
           <Route path="/test2" component={Test2} />
           <Route path="/test3" component={Test3} />
           <Route path="/test4" component={Test4} />
+          <Route path="/home" component={Home} />
         </div>
       </Router>
     );
